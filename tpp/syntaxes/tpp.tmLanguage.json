@@ -1,0 +1,70 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "T++",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#entity"
+		}
+	],
+	"repository": {
+		"comments":{
+			"patterns": [{
+				"name": "comment.block.character.tpp",
+				"begin": "{",
+				"end": "}",
+				"patterns": [{
+					"name":"comment.block.text.tpp",
+					"match": "\\*"
+				}]
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.tpp",
+				"match": "(senão|então|se|fim|repita|retorna|até)"
+			},
+			{
+				"name": "keyword.operator.tpp",
+				"match":	"(\\+|\\-|\\*|\\/|&&|\\|\\||<>|<=|>=|<|>|==|!|\\(|\\)|\\[|\\]|,|:=|:)"
+			}
+		]
+		},
+		"constant":{
+			"patterns": [{
+				"name": "constant.numeric.integer.tpp",
+				"match": "(\\-\\+)?\\d+"
+			},
+			{
+				"name": "constant.numeric.float.tpp",
+				"match": "(([\\-\\+]?)([0-9]+)\\.([0-9]+))"
+			},
+			{
+				"name": "constant.numeric.scientific.tpp",
+				"match": "(([\\-\\+]?)([1-9])\\.([0-9])+[eE]([\\-\\+]?)([0-9]+))"
+			}
+		]
+		},
+		"entity": {
+				"patterns": [
+					{
+						"name":"entity.name.type",
+						"match": "(inteiro|flutuante)"
+					},
+					{
+						"name":"entity.name.function",
+						"match": "(leia|escreva)"
+					}
+			]
+		}
+	},
+	"scopeName": "source.tpp"
+}
